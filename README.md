@@ -1,7 +1,7 @@
 # Newsblur Indicator
 A rudimentary app that shows your unread story count from [Newsblur](https://newsblur.com) on your Ubuntu Unity Messaging Menu
 
-[![Screenshot](https://github.com/gnufs/newsblur-indicator/raw/master/screenshot.png)]
+![Screenshot](https://github.com/gnufs/newsblur-indicator/raw/master/screenshot.png)
 
 ## Requirements
 * `python-indicate` from Ubuntu repos
