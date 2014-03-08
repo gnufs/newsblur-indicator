@@ -4,9 +4,9 @@ A rudimentary app that shows your unread story count from [Newsblur](https://new
 [![Screenshot](https://github.com/gnufs/newsblur-indicator/raw/master/screenshot.png)]
 
 ## Requirements
-'python-indicate' from Ubuntu repos
-'gaussian' from [github.com/mattaustin/gaussian](https://github.com/mattaustin/gaussian)
-'requests'
+* `python-indicate` from Ubuntu repos
+* `gaussian` from [github.com/mattaustin/gaussian](https://github.com/mattaustin/gaussian)
+* `requests`
 
 ## Artwork
 One of many [Newsblur icons](https://github.com/samuelclay/NewsBlur/tree/master/media/img) can be placed under `/usr/share/pixmaps/newsblur.png`
