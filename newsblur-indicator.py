@@ -50,8 +50,8 @@ def get_auth():
 
 def get_unread():
 	session = requests.Session()
-	session.post('http://www.newsblur.com/api/login', {'username': USERNAME, 'password': PASSWORD})
-	hash_response = session.get('http://www.newsblur.com/reader/unread_story_hashes')
+	session.post('https://www.newsblur.com/api/login', {'username': USERNAME, 'password': PASSWORD})
+	hash_response = session.get('https://www.newsblur.com/reader/unread_story_hashes')
 	hashes = hash_response.json()['unread_feed_story_hashes']
 	unread = 0
 	for hash in hashes:
