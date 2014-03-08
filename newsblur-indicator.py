@@ -50,7 +50,12 @@ def get_auth():
 
 def get_unread():
 	newsblur = gaussian.NewsBlur(username=USERNAME, password=PASSWORD)
-	return len(newsblur.get_feeds())
+	feeds = newsblur.get_feeds()
+	unread = 0
+	for feed in feeds:
+		for story in feed.get_stories():
+			unread += 1
+	return unread
 
 def server_display(server, time):
 	open_newsblur()
