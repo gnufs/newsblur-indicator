@@ -19,7 +19,7 @@
 
 import indicate
 
-import gaussian
+import requests
 
 import os
 import subprocess
@@ -34,7 +34,7 @@ PASSWORD = ''
 dirname = os.path.dirname(os.path.realpath(__file__))
 desktop_file = os.path.join(dirname, 'Newsblur.desktop')
 count = '0'
-frequency = 120	# in seconds
+frequency = 300	# in seconds
 
 
 def open_newsblur():
@@ -49,12 +49,13 @@ def get_auth():
 
 
 def get_unread():
-	newsblur = gaussian.NewsBlur(username=USERNAME, password=PASSWORD)
-	feeds = newsblur.get_feeds()
+	session = requests.Session()
+	session.post('http://www.newsblur.com/api/login', {'username': USERNAME, 'password': PASSWORD})
+	hash_response = session.get('http://www.newsblur.com/reader/unread_story_hashes')
+	hashes = hash_response.json()['unread_feed_story_hashes']
 	unread = 0
-	for feed in feeds:
-		for story in feed.get_stories():
-			unread += 1
+	for hash in hashes:
+		unread += len(hashes[hash])
 	return unread
 
 def server_display(server, time):
