@@ -34,7 +34,7 @@ PASSWORD = ''
 dirname = os.path.dirname(os.path.realpath(__file__))
 desktop_file = os.path.join(dirname, 'Newsblur.desktop')
 count = '0'
-frequency = 300	# in seconds
+frequency = 120	# in seconds
 
 
 def open_newsblur():
@@ -67,14 +67,15 @@ def indicator_display(source, time):
 
 
 def check_feeds(source):
-    unread = get_unread()
-    global count
-    if unread is not None and unread > int(count):
-    	source.set_property('draw-attention', 'true')
+	unread = get_unread()
+	global count
+	if unread is not None and unread is not int(count):
+		source.set_property('draw-attention', 'true')
     	count = str(unread)
     	source.set_property('count', count)
-    source.set_property_time("time", time())
-    return True
+    	source.show()
+	source.set_property_time("time", time())
+	return True
 
 
 if __name__ == '__main__':
